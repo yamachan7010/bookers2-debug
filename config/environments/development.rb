@@ -67,9 +67,20 @@ Rails.application.configure do
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'gmail.com',
+    user_name:            '○○○@gmail.com',
+    password:             'tcfnojvvvnmvptbo',
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.active_job.queue_adapter = :inline
   config.hosts.clear
   # config.action_cable.disable_request_forgery_protection = true
