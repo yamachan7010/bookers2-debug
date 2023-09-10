@@ -11,6 +11,12 @@ import jQuery from "jquery"
 import "popper.js"
 import "bootstrap"
 import Chart from "chart.js/auto";
+import Raty from "./raty.js"
+window.raty = function(elem,opt){
+  var raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
 global.Chart = Chart;
 
 import '@fortawesome/fontawesome-free/js/all';

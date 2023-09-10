@@ -21,6 +21,19 @@
         </td>
         <td><%= render "book_comments/counter", book: book %></td>
         <td class="view-count">閲覧数: <%= book.view_counts.count %></td>
+        <td>
+          <div id="rate_<%= book.id %>"></div>
+          <script>
+          var elem = document.getElementById('rate_<%= book.id %>');
+          var opt = {
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            readOnly: true,
+            score: <%= book.rate ||= 0 %>
+          };
+          raty(elem,opt);
+          </script>
+        </td>
       </tr>
     <% end %>
   </tbody>
